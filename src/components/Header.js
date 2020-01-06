@@ -1,9 +1,18 @@
 import React from "react";
+import "../styles.css";
 
-const Header = (props) => {
+const Header = () => {
     return (
         <div>
-            <h1>Meme Generator</h1>
+            <header>
+                <img
+                    src="http://www.pngall.com/wp-content/uploads/2016/05/Trollface.png" 
+                    alt="Problem?"
+                />
+                <p className="title">
+                    Meme Generator
+                </p>
+            </header>
         </div>
     );
 };

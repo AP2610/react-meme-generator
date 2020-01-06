@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import Form from "./FormComponent";
+import MemeContent from "./MemeContent";
 
 const apiUrl = "https://api.imgflip.com/get_memes"
 
@@ -39,35 +41,14 @@ class MemeGenerator extends Component {
     }
     
     render() {
-        console.log(this.state)
-        const name = this.state.isLoaded ?  this.state.allMemeImgs[0].name : "Loading..."
         return (
             <div>
-                <p>{name} </p>
-                <form onSubmit={this.handleSubmit}>
-                    <input 
-                        name="topText" 
-                        value={this.state.topText} 
-                        type="text" 
-                        placeholder="Top text" 
-                        onChange={this.handleChange}
-                    />
-                    <br />
-                    <input 
-                        name="bottomText" 
-                        value={this.state.bottomText} 
-                        type="text" 
-                        placeholder="Bottom Text" 
-                        onChange={this.handleChange}
-                    />
-                    <br/>
-                    <button>Generate</button>
-                </form>
-                <div>
-                    <img src={this.state.randomImg}/>
-                    <h2>{this.state.topText}</h2>
-                    <h2>{this.state.bottomtext}</h2>
-                </div>
+                <Form 
+                    handleSubmit={this.handleSubmit}
+                    handleChange={this.handleChange}
+                    data={this.state}
+                />
+                <MemeContent data={this.state}/>
             </div>
         )
     }
